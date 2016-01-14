@@ -1,3 +1,6 @@
+/*
+Very simple logger with mutex.
+*/
 package log
 
 import (

@@ -8,24 +8,25 @@ import (
 )
 
 var mutex = &sync.Mutex{}
-var Format = ""
+var OutFormat = ""
 var OutWriter = os.Stdout
+var ErrFormat = ""
 var ErrWriter = os.Stderr
 
-func p(s io.Writer, a ...interface{}) {
+func p(s io.Writer, f string, a ...interface{}) {
   mutex.Lock()
-  if Format == "" {
+  if f == "" {
     fmt.Fprintln(s, a...)
   } else {
-    fmt.Fprintf(s, Format, a...)
+    fmt.Fprintf(s, f, a...)
   }
   mutex.Unlock()
 }
 
 func Out(a ...interface{}) {
-  p(OutWriter, a...)
+  p(OutWriter, OutFormat, a...)
 }
 
 func Err(a ...interface{}) {
-  p(ErrWriter, a...)
+  p(ErrWriter, ErrFormat, a...)
 }

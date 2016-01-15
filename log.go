@@ -10,6 +10,8 @@ import (
   "sync"
 )
 
+const VERSION = "0.0.1"
+
 var mutex = &sync.Mutex{}
 var OutFormat = ""
 var OutWriter = os.Stdout

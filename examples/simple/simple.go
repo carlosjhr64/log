@@ -3,12 +3,11 @@ package main
 import "github.com/carlosjhr64/log"
 
 func main() {
-  log.Out("OK", "This is to Stdout")
-  log.Err("Oops", "This is to Stderr")
-
-  log.ErrFormat = "Ooops: %s.\n"
-  log.OutFormat = "OK: %s.\n"
-
-  log.Out("This is to Stdout")
-  log.Err("This is to Stderr")
+  log.Out("Hello, how are you?")
+  log.Err("Ok, and you?")
+  a := log.New("I'm %s, %s.\n")
+  b := log.New("%s are %s!\n")
+  a.Out("fine", "thank you")
+  b.Err("You", "welcomed")
+  b.Err("We", "good")
 }
